@@ -1,13 +1,66 @@
  //* options screens //
- let promptCount = window.prompt('How many characters would you like your password to contain? Yes or No? (8 character minimum)')
+
+
+ 
+ var promptCount = prompt("How many characters would you like your password to contain? Yes or No? (8 character minimum)","8")
+
+ console.log(promptCount)
+ if (promptCount.toLowerCase() == "yes"){
+  alert("DO SOMETHING count!");
+ }
+  
+ // passwordlength = 
+  //passwordAllowewd += ;
+
+
+ //  NUMBERS //
+ 
  var promptLower = window.prompt('Would you like your password to contain lower case letters? Yes or No?')
+    if (promptLower.toLowerCase() == "yes"){
+      alert("DO SOMETHING lower!");
+ 
+ 
+ }
+
+
+
  var promptUpper = window.prompt('Would you like your password to contain upper case letters? Yes or No?')
+  if (promptUpper.toLowerCase() == "yes"){
+    alert("DO SOMETHING upper!");
+
+ 
+  }
+
+
  var promptNumeric = window.prompt('Would you like your password to contain numbers? Yes or No?')
+
+ if (promptNumeric.toLowerCase() == "yes"){
+  alert("DO SOMETHING Numeric!");
+
+ 
+ }
+
+
  var promptSpecial = window.prompt('Would you like your password to contain special characters? Yes or No?')
+
+ if (promptSpecial.toLowerCase() == "yes"){
+  alert("DO SOMETHING special!");
+
+  }
+
+
+
+
+
+
+
+
+
+
 
 function generatePasswordOptions () {
  
-
+ 
 
  // store input (translate to not be case sensitive) and set up if operations that determine whats allowed to be included in password characters. //
  
@@ -71,7 +124,7 @@ var specialCharacters = [
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var lowerCaseCharacters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var UpperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 //** 10 characters, 26 characters *//
 
@@ -93,11 +146,10 @@ var generateBtn = document.querySelector("#generate"); //attaching java to html 
   function generatePassword() {
     console.log("Button press confirmed")
 
+// Generate password options will go inside here// 
 
 
-
-
-
+var passwordAllowed = "needs to be defined still"
 
 
     var random = Math.floor(Math.random()*10);
