@@ -1,47 +1,5 @@
 
 
- 
- var promptLower = window.prompt('Would you like your password to contain lower case letters? Yes or No?',"Yes")
-    if (promptLower.toLowerCase() == "yes"){
-      console.log("Selection lower worked!");
-      
-    }
-
-
-
- var promptUpper = window.prompt('Would you like your password to contain upper case letters? Yes or No?',"Yes")
-  if (promptUpper.toLowerCase() == "yes"){
-    console.log("Selection upper worked!");
-
- 
-  }
-
-
- var promptNumeric = window.prompt('Would you like your password to contain numbers? Yes or No?',"Yes")
-
- if (promptNumeric.toLowerCase() == "yes"){
-  console.log("Selection numeric worked!");
-
- 
- }
-
-
- var promptSpecial = window.prompt('Would you like your password to contain special characters? Yes or No?',"Yes")
-
- if (promptSpecial.toLowerCase() == "yes"){
-  console.log("Selection special worked!");
-
-  }
-
-  
-  
-  var promptCount = prompt("How many characters would you like your password to contain? Yes or No? (8 character minimum)","8")
-  promptCount = Number (promptCount)
-  
-   if (promptCount){
-    console.log("The Number() function worked");
-    
-   }
     
 
  
@@ -51,10 +9,10 @@
 
 
 
-function generatePasswordOptions () {
-  var visiblePassword = document.querySelector("#generate");
+// function generatePasswordOptions () {
+//   var visiblePassword = document.querySelector("#generate");
 
- }
+//  } 
  
  
  
@@ -114,22 +72,9 @@ const upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', '
 var generateBtn = document.querySelector("#generate"); //attaching java to html button, only id on page//
 
 
-// ------------------function generatePassword() { //
-  //  console.log("Button press confirmed") -------------------------//
-  function generatePassword() {
-    console.log("Button press confirmed")
-
-// Generate password options will go inside here// 
-
-
-  var random = Math.floor(Math.random()*10);
-    console.log(random, 'random function worked');
-
-
-//* randomize number value only, why? how to make it show? //
-    // return "Generated Password will go here" //
-    
-}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+// onclick?//
 
 
 
@@ -144,6 +89,91 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-// onclick?//
+// Pool of potential useable characters depending on user selection -- passwordAllowed //
+var characterPool = []
+var final = []
+
+// ------------------function generatePassword() { //
+  //  console.log("Button press confirmed") -------------------------//
+function generatePassword() {
+    console.log("Button press confirmed")
+
+
+var promptCount = prompt("How many characters would you like your password to contain? Yes or No? (8 character minimum)","8")
+if (promptCount){
+
+console.log("The count function worked");
+    
+}
+if (promptCount<8){
+alert ("8!")
+return 
+}
+  
+    var promptLower = window.confirm('Would you like your password to contain lower case letters? Yes or No?')
+ 
+      console.log("Selection lower worked!");
+      if(promptLower===true){
+        characterPool = characterPool.concat(lowerCaseCharacters)
+       }
+
+
+
+ var promptUpper = window.confirm('Would you like your password to contain upper case letters? Yes or No?')
+    console.log("Selection upper worked!");
+    if(promptUpper===true){
+      characterPool = characterPool.concat(upperCaseCharacters)
+     }
+    
+
+
+
+
+ var promptNumeric = window.confirm('Would you like your password to contain numbers? Yes or No?')
+ 
+  console.log("Selection numeric worked!");
+
+  if(promptNumeric===true){
+    characterPool = characterPool.concat(numericCharacters)
+   }
+  
+
+
+
+ var promptSpecial = window.confirm('Would you like your password to contain special characters? Yes or No?')
+ 
+  console.log("Selection special worked!");
+
+ if(promptSpecial===true){
+  characterPool = characterPool.concat(specialCharacters)
+ }
+
+  // +=
+  
+
+for (var i = 0; i < promptCount; i++){
+var randomIndex = Math.floor(Math.random()*characterPool.length);
+var indexValue = characterPool[randomIndex]
+final.push(indexValue)
+//   console.log(random, 'random function worked');
+console.log(final)
+}
+
+
+
+
+// Generate password options will go inside here// 
+
+
+  // var random = Math.floor(Math.random()*10);
+  //   console.log(random, 'random function worked');
+
+
+//* randomize number value only, why? how to make it show? //
+    // return "Generated Password will go here" //
+    return final.join("")
+}
+
+
+
+
